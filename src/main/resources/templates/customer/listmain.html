@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <title>Title</title>
+</head>
+<body><H1> List Customer</H1>
+
+<table  border="1" width="30%">
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>email</td>
+        <td>address</td>
+        <td>phone</td>
+
+    </tr>
+
+    <tr th:each="customer:${customerPage}">
+        <td th:text="${customer.getId()}"></td>
+        <td th:text="${customer.getName()}"></td>
+        <td th:text="${customer.getEmail()}"></td>
+        <td th:text="${customer.getAddress()}"></td>
+        <td th:text="${customer.getPhone()}"></td>
+        <td><a  th:href="@{customers/show-edit-form/{id} (id=${customer.id})}">update</a></td>
+        <td><a  th:href="@{customers/delete/{id} (id=${customer.id})}">delete</a></td>
+    </tr>
+</table>
+
+<a type="button" href="customers/show-add-form">New customer</a>
+</body>
+</html>
